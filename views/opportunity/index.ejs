@@ -1,0 +1,35 @@
+<% layout('layout') -%>
+
+<div class="container">
+	<div><input type="button" name="create" value="登録"></div>
+	<table class="table">
+		<thead>
+			<th>#</th>
+			<th>案件名</th>
+			<th>概要</th>
+			<th>発生日</th>
+			<th>受注確度</th>
+			<th>ステータス</th>
+			<th>金額</th>
+			<th>作成日</th>
+			<th>更新日</th>
+			<th>操作</th>
+		</thead>
+		<tbody>
+<% for(var i=0; i < data.length; i++) {%>
+			<td><%= data[i].code %></td>
+			<td><%= data[i].name %></td>
+			<td><%= data[i].summary %></td>
+			<td><%= data[i].accrualDate %></td>
+			<td><%= data[i].orderAccuracy %></td>
+			<td><%= data[i].status %></td>
+			<td><%= data[i].value %></td>
+			<td><%= data[i].created %></td>
+			<td><%= data[i].updated %></td>
+			<td><a href="/opportunity/<%=data[i]._id%>">詳細</a>
+			<a href="/opportunity/edit/<%=data[i]._id%>">編集</a>
+			<a href="/opportunity/del/<%=data[i]._id%>">削除</a></td>
+<% } %>
+		</tbody>
+	</table>
+</div>
